@@ -153,13 +153,12 @@ function upperCaseValues(object) {
  });
 }
 
-function countNestedObjects(object) {
-
+function countNestedKeys(nestedObj) {
+return map(nestedObj, function(val, key) {
+    return nestedObj[key] = Object.keys(nestedObj[key]).length;
+  });
 }
 
 console.log(incrementValues({ name: {first: "Louis", last: "Reasoner"}, age: 21}));
 console.log(upperCaseValues({name: 'Jane', age: 23, last: 'Doe'}));
-//console.log(countNestedObjects({a: {b: 1, c: 7}, f: {h: 22, g: 12, i: 24}}));
-
-
-
+console.log(countNestedKeys({a: {b: 1, c: 7}, f: {h: 22, g: 12, i: 24}}));
